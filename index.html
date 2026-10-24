@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="bn">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>SSWL Firestick Stock</title>
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<div class="w">
+<div id="gate" class="c gate">Loading…</div>
+<div id="app" class="hid">
+<div class="top"><img class="logo sm" alt="SSWL Broadband OTT &amp; IPTV Department" src="logo.png"><h1>SSWL Firestick Stock</h1></div>
+<div class="nav" id="nav"></div>
+<div id="v-none" class="c hid">No portal is assigned to your account yet. Please ask the admin.</div>
+
+<div id="v-firestick" class="view hid">
+<div class="stats" id="fstats"></div>
+<div class="two"><div class="c"><b>Issued: this month vs last month</b><div id="chart"></div></div><div class="c mini"><b>Stock by FE</b><div class="tw" id="fetab"></div></div></div>
+<div class="bar"><input class="q" id="fq" placeholder="Search serial, client, FE, hub…">
+<select id="ffs"><option value="">All status</option><option>In Stock</option><option>Issued</option><option>Returned</option><option>Faulty</option></select>
+<select id="ffh"><option value="">All hubs</option></select>
+<button id="sum">Summary</button><button class="p fw" id="fadd">+ Add Firestick</button><button class="fw" id="fbulk">Bulk add</button><button id="fexp">Export CSV</button></div>
+<div class="c tw"><table><thead id="fh"><tr><th data-k="serial">Serial No.</th><th data-k="model">Model</th><th data-k="hub">HUB</th><th data-k="status">Status</th><th data-k="fe">FE</th><th data-k="cid">Client ID</th><th data-k="cname">Client Name</th><th data-k="date">Date</th><th data-k="note">Remarks</th><th></th></tr></thead><tbody id="ftb"></tbody></table></div>
+</div>
+
+<div id="v-clients" class="view hid">
+<div class="bar"><input class="q" id="cq" placeholder="Search any field…"><span id="ccnt" style="align-self:center;color:var(--mu)"></span><button class="p cw" id="cadd">+ Add record</button><button id="cexp">Export CSV</button></div>
+<div class="c tw"><table style="min-width:1300px"><thead id="ch"></thead><tbody id="ctb"></tbody></table></div>
+</div>
+
+</div>
+</div>
+
+<dialog id="pop"><b style="font-size:17px">📊 Stock summary</b><div id="popb" style="margin-top:10px"></div><div class="acts"><button class="p" id="popx">OK</button></div></dialog>
+<dialog id="dlg"><form method="dialog" id="fm"><b id="dt">Firestick</b><div class="g">
+<div><label>Serial No.</label><input id="serial" required></div>
+<div><label>Model</label><select id="model"><option>Fire TV Stick Lite</option><option>Fire TV Stick HD</option><option>Fire TV Stick 4K</option><option>Fire TV Stick 4K Max</option></select></div>
+<div><label>HUB</label><input id="hub" required></div>
+<div><label>Status</label><select id="status"><option>In Stock</option><option>Issued</option><option>Returned</option><option>Faulty</option></select></div>
+<div><label>FE (holder / issued by)</label><input id="fe"></div><div><label>Date</label><input id="date" type="date"></div>
+<div><label>Client ID</label><input id="cid"></div><div><label>Client Name</label><input id="cname"></div>
+<div style="grid-column:1/-1"><label>Remarks</label><input id="note"></div></div>
+<div class="err" id="err"></div><div class="acts"><button type="button" id="cx">Cancel</button><button class="p" type="submit">Save</button></div></form></dialog>
+<dialog id="idlg"><form method="dialog" id="ifm"><b id="it">Issue</b><div class="g">
+<div><label>Client ID</label><input id="icid" required></div><div><label>Client Name</label><input id="icname" required></div>
+<div><label>FE</label><input id="ife" required></div><div><label>Date of Issue</label><input id="idate" type="date" required></div></div>
+<div class="acts"><button type="button" id="icx">Cancel</button><button class="p" type="submit">Issue</button></div></form></dialog>
+<dialog id="bdlg"><form method="dialog" id="bf"><b>Bulk add serials</b><label>One serial number per line</label><textarea id="bl" rows="6" required></textarea>
+<div class="g"><div><label>Model</label><select id="bm"><option>Fire TV Stick Lite</option><option>Fire TV Stick HD</option><option>Fire TV Stick 4K</option><option>Fire TV Stick 4K Max</option></select></div>
+<div><label>HUB</label><input id="bh" required></div><div><label>FE holding the stock</label><input id="bfe"></div></div>
+<div class="err" id="be"></div><div class="acts"><button type="button" id="bx">Cancel</button><button class="p" type="submit">Add all</button></div></form></dialog>
+<dialog id="cdlg"><form method="dialog" id="cfm"><b id="cdt">Record</b><div class="g" id="cgrid"></div>
+<div class="err" id="cerr"></div><div class="acts"><button type="button" id="ccx">Cancel</button><button class="p" type="submit">Save</button></div></form></dialog>
+
+<script src="script.js"></script>
+</body>
+</html>
